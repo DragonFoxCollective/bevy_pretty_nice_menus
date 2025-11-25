@@ -1,0 +1,21 @@
+[package]
+name = "bevy-pretty-nice-menus"
+version = "0.1.0"
+edition = "2024"
+description = "A menu crate add-on for bevy-pretty-nice-input"
+categories = ["game-development"]
+keywords = ["bevy", "menu"]
+rust-version = "1.88.0"                                                      # Follows bevy 0.17
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/DragonFoxCollective/bevy-pretty-nice-menus"
+
+[features]
+default = []
+pretty_nice_input = ["dep:bevy-pretty-nice-input"]
+
+[dependencies]
+bevy = { version = "0.17", default-features = false, features = [
+	"bevy_log",
+	"bevy_camera",
+] }
+bevy-pretty-nice-input = { version = "0.1.0", optional = true }
