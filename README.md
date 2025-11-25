@@ -1,5 +1,11 @@
 # Bevy Pretty Nice Menus
 
+[![crates.io](https://img.shields.io/crates/v/bevy-pretty-nice-menus)](https://crates.io/crates/bevy-pretty-nice-menus)
+
+| bevy  | bevy-pretty-nice-menus |
+|-------|------------------------|
+| 0.17  | 0.1                    |
+
 A menu stack abstraction for Bevy.
 
 ## Usage
