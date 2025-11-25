@@ -22,9 +22,10 @@ impl Plugin for PrettyNiceMenusPlugin {
             )
             .add_observer(show_mouse)
             .add_observer(hide_mouse)
-            .add_observer(show_menus)
-            .add_observer(hide_menus)
             .add_observer(despawn_menus);
+
+        #[cfg(feature = "visibility")]
+        app.add_observer(show_menus).add_observer(hide_menus);
 
         #[cfg(feature = "pretty_nice_input")]
         app.add_plugins(input::PrettyNiceMenusInputPlugin);
@@ -144,6 +145,7 @@ pub fn close_menu_on_event<Ev: EntityEvent>(input: On<Ev>, mut menu_stack: ResMu
     menu_stack.remove(input.event_target());
 }
 
+#[cfg(feature = "visibility")]
 fn show_menus(
     activate: On<ActivateMenu>,
     mut menus: Query<&mut Visibility, With<MenuHidesWhenClosed>>,
@@ -153,6 +155,7 @@ fn show_menus(
     }
 }
 
+#[cfg(feature = "visibility")]
 fn hide_menus(
     deactivate: On<DeactivateMenu>,
     mut menus: Query<&mut Visibility, With<MenuHidesWhenClosed>>,

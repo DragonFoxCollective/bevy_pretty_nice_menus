@@ -29,6 +29,8 @@ Menus with this component despawn when deactivated.
 Menus with these components will either have the mouse unlocked and visible or grabbed and invisible when activated.
 There is no default behavior.
 
+Only available with the `visibility` feature.
+
 ### `show_menu_on_event` and `close_menu_on_event`
 
 These are two entity observers, where the entity target is either pushed or removed when the input is triggered.
