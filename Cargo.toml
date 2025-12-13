@@ -1,6 +1,6 @@
 [package]
 name = "bevy_pretty_nice_menus"
-version = "0.2.2"
+version = "0.3.0"
 edition = "2024"
 description = "A menu stack abstraction for Bevy"
 categories = ["game-development"]
@@ -16,4 +16,4 @@ visibility = ["bevy/bevy_camera"]
 
 [dependencies]
 bevy = { version = "0.17", default-features = false, features = ["bevy_log"] }
-bevy_pretty_nice_input = { version = "0.2.0", optional = true }
+bevy_pretty_nice_input = { version = "0.3.0", optional = true }
