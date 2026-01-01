@@ -15,8 +15,5 @@ pretty_nice_input = ["dep:bevy_pretty_nice_input"]
 visibility = ["bevy/bevy_camera"]
 
 [dependencies]
-bevy = { version = "0.17", default-features = false, features = [
-	"bevy_log",
-	"reflect_auto_register",
-] }
+bevy = { version = "0.17", default-features = false, features = ["bevy_log"] }
 bevy_pretty_nice_input = { version = "0.4.2", optional = true }
