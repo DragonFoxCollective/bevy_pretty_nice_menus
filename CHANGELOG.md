@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.2
+
+### Changed
+
+- Updated to bevy_pretty_nice_input v0.4.2
+
 ## 0.3.1
 
 ### Changed
