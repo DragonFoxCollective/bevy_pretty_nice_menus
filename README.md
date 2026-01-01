@@ -4,7 +4,7 @@
 
 | bevy  | bevy_pretty_nice_menus |
 |-------|------------------------|
-| 0.17  | 0.1, 0.2               |
+| 0.17  | 0.1, 0.2, 0.3, 0.4     |
 
 A menu stack abstraction for Bevy.
 
