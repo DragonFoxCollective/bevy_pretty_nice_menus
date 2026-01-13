@@ -66,6 +66,7 @@ fn activate_stack_current_input(
     menus_with_inputs: Query<(), With<MenuWithInput>>,
     menu_inputs: Query<&MenuInputs>,
     mut commands: Commands,
+    entities: Query<()>,
 ) -> Result {
     if !menu_stack.is_changed() {
         return Ok(());
@@ -81,10 +82,14 @@ fn activate_stack_current_input(
     if let Some(current_input) = menu_stack_input.current_input
         && new_top_input != Some(current_input)
     {
-        commands.entity(current_input).insert(InputDisabled);
+        if entities.get(current_input).is_ok() {
+            debug!("Inserting InputDisabled to {current_input:?}");
+            commands.entity(current_input).insert(InputDisabled);
 
-        for input in menu_inputs.iter_descendants(current_input) {
-            commands.entity(input).insert(InputDisabled);
+            for input in menu_inputs.iter_descendants(current_input) {
+                debug!("Inserting InputDisabled to {current_input:?}'s child {input:?}");
+                commands.entity(input).insert(InputDisabled);
+            }
         }
 
         menu_stack_input.current_input = None;
@@ -109,9 +114,17 @@ fn disable_input_managers_on_add_menu_with_input(
     add: On<Add, MenuWithInput>,
     mut commands: Commands,
 ) {
+    debug!(
+        "Inserting InputDisabled to new MenuWithInput {:?}",
+        add.entity
+    );
     commands.entity(add.entity).insert(InputDisabled);
 }
 
 fn disable_input_managers_on_add_menu_input_of(add: On<Add, MenuInputOf>, mut commands: Commands) {
+    debug!(
+        "Inserting InputDisabled to new MenuInputOf {:?}",
+        add.entity
+    );
     commands.entity(add.entity).insert(InputDisabled);
 }

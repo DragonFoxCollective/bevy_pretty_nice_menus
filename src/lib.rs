@@ -191,12 +191,14 @@ fn remove_despawned_menus(
 ) {
     for menu in menu_stack.stack.clone() {
         if entities.get(menu).is_err() {
-            menu_stack.remove(menu);
-            commands.trigger(DeactivateMenu { menu });
+            debug!("Removing despawned menu {:?}", menu);
 
             if menu_stack.current_top == Some(menu) {
                 menu_stack.current_top = None;
             }
+
+            menu_stack.remove(menu);
+            commands.trigger(DeactivateMenu { menu });
         }
     }
 }
