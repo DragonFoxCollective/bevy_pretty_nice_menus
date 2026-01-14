@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.3
+
+### Fixed
+
+- Removed dependency on bevy_reflect/auto_register
+- Fixed a crash for when the current input was despawned
+
 ## 0.3.2
 
 ### Changed
