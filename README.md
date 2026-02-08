@@ -31,6 +31,10 @@ Menus with this component will automatically have their visibility set to [`Visi
 
 Menus with this component despawn when deactivated.
 
+## [`MenuSpawnsOnStack`]
+
+Menus with this component are immediately added to the stack. Requires the stack to already exist.
+
 ## [`MenuWithMouse`] and [`MenuWithoutMouse`]
 
 Menus with these components will either have the mouse unlocked and visible or grabbed and invisible when activated.

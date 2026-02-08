@@ -24,7 +24,8 @@ impl Plugin for PrettyNiceMenusPlugin {
             )
             .add_observer(show_mouse)
             .add_observer(hide_mouse)
-            .add_observer(despawn_menus);
+            .add_observer(despawn_menus)
+            .add_observer(spawn_on_stack);
 
         #[cfg(feature = "visibility")]
         app.add_observer(show_menus).add_observer(hide_menus);
@@ -49,6 +50,14 @@ pub struct MenuHidesWhenClosed;
 #[derive(Component, Debug, Reflect)]
 #[reflect(Component, Debug)]
 pub struct MenuDespawnsWhenClosed;
+
+#[derive(Component, Debug, Reflect)]
+#[reflect(Component, Debug)]
+pub struct MenuSpawnsOnStack;
+
+fn spawn_on_stack(add: On<Add, MenuSpawnsOnStack>, mut menu_stack: If<ResMut<MenuStack>>) {
+    menu_stack.push(add.entity);
+}
 
 #[derive(Resource, Default, Debug, Reflect)]
 #[reflect(Resource, Default, Debug)]
