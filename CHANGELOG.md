@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+- Updated to Bevy 0.18
+
 ## 0.3.3
 
 ### Fixed

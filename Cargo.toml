@@ -1,19 +1,19 @@
 [package]
 name = "bevy_pretty_nice_menus"
-version = "0.3.3"
+version = "0.4.0"
 edition = "2024"
+rust-version = "1.92.0"  # Follows bevy 0.18
 description = "A menu stack abstraction for Bevy"
-categories = ["game-development"]
-keywords = ["bevy", "menu"]
-rust-version = "1.88.0"                                                      # Follows bevy 0.17
-license = "MIT OR Apache-2.0"
 repository = "https://github.com/DragonFoxCollective/bevy_pretty_nice_menus"
+license = "MIT OR Apache-2.0"
+keywords = ["bevy", "menu"]
+categories = ["game-development"]
+
+[dependencies]
+bevy = { version = "0.18", default-features = false, features = ["bevy_log"] }
+bevy_pretty_nice_input = { version = "0.5.0", optional = true }
 
 [features]
 default = ["visibility"]
 pretty_nice_input = ["dep:bevy_pretty_nice_input"]
 visibility = ["bevy/bevy_camera"]
-
-[dependencies]
-bevy = { version = "0.17", default-features = false, features = ["bevy_log"] }
-bevy_pretty_nice_input = { version = "0.4.2", optional = true }
