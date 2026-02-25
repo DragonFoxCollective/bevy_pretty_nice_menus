@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use bevy_pretty_nice_input::{Action, InputDisabled, JustPressed};
+use bevy_pretty_nice_input::prelude::*;
 
 use crate::{MenuStack, remove_despawned_menus};
 
@@ -42,7 +42,7 @@ pub struct MenuInputOf(#[relationship] pub Entity);
 #[derive(Action)]
 pub struct CloseMenuAction;
 
-pub fn show_menu_on_action<Action: bevy_pretty_nice_input::Action, Menu: Component>(
+pub fn show_menu_on_action<Action: bevy_pretty_nice_input::prelude::Action, Menu: Component>(
     _: On<JustPressed<Action>>,
     mut menus: Query<Entity, With<Menu>>,
     mut menu_stack: ResMut<MenuStack>,
@@ -52,7 +52,7 @@ pub fn show_menu_on_action<Action: bevy_pretty_nice_input::Action, Menu: Compone
     Ok(())
 }
 
-pub fn close_menu_on_action<Action: bevy_pretty_nice_input::Action>(
+pub fn close_menu_on_action<Action: bevy_pretty_nice_input::prelude::Action>(
     pressed: On<JustPressed<Action>>,
     mut menu_stack: ResMut<MenuStack>,
 ) {
