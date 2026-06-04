@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repo is archived because its source code is now being hosted on [our website](https://git.dragonfox.dev/DragonFoxCollective/bevy_pretty_nice_menus)!
+
 # bevy_pretty_nice_menus
 
 [![crates.io](https://img.shields.io/crates/v/bevy_pretty_nice_menus)](https://crates.io/crates/bevy_pretty_nice_menus)
